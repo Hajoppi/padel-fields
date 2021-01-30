@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#app,
+body,
+html {
+  min-height: 100vh;
+}
+
+.place-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.field {
+  padding: 1em;
+}
+
