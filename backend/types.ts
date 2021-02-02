@@ -1,6 +1,7 @@
-export type ProviderData = {
-  [index: number ]: {
-    name: string,
-    fields: string[][]
-  }
+export type Provider = {
+  name: string,
+  fields: string[][]
 }
+
+export type ProviderData = Provider[]
+

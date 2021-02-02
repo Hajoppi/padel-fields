@@ -30,19 +30,24 @@ const parseDom = (dom: string): string[][] => {
 
 export const get = async(time: Date = new Date()): Promise<ProviderData> => {
   const day = time.toISOString().split('T')[0].split('-').reverse().join('.')
-  console.log(day);
   const params = {
     func: "mod_rc_v2",
     pageId: 11,
     cdate: day,
   }
-  const { data } = await axios.get(url,{params})
-  const fieldData = parseDom(data);
-  return [
-    {
-      name: "Grani", fields: fieldData
-    }
-  ];
+  try {
+    const { data } = await axios.get(url,{params})
+    const fieldData = parseDom(data);
+    return [
+      {
+        name: "Grani", fields: fieldData
+      }
+    ];
+  }
+  catch (error) {
+    console.error(error)
+    return [];
+  }
 }
 
 export default {

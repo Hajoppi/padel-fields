@@ -35,16 +35,22 @@ export const get = async (date: Date = new Date()): Promise<ProviderData> => {
     "BookingCalForm[p_pvm_interval]": "1",
     "BookingCalForm[p_calmode]": "2",
   }
-  
-  const { data } = await axios.get(url,{
-    params,
-  });
-  const fieldData = parseDom(data);
-  return [
-    {
-      name: "Padelhouse", fields: fieldData
-    }
-  ];
+
+  try {
+    const { data } = await axios.get(url,{
+      params,
+    });
+    const fieldData = parseDom(data);
+    return [
+      {
+        name: "Padelhouse", fields: fieldData
+      }
+    ];
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+
 }
 
 export default {

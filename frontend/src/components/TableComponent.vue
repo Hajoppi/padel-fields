@@ -1,11 +1,13 @@
 <template>
-  <div class="place-container" v-for="place, index in provider" :key="index">
+<div class="place-container">
+  <div class="place" v-for="place, index in provider" :key="index">
     <div>{{place.name}}</div>
     <div class="field" v-for="field,index in place.fields" :key="index">
       <div class="field-label">Kenttä {{index + 1}}</div>
       <div class="time" v-for="time, index in field" :key="index">{{time}}</div>
     </div>
   </div>
+</div>
 </template>
 
 <script lang="ts">
